@@ -1,0 +1,41 @@
+{
+    "name" : "Autoupdate Mod Test",
+    "description" : "Mod to test autoupdate template",
+    "author" : "m-alorda",
+    "version": "1",
+    "blt_version" : 2,
+    "hooks" : [
+        {
+            "hook_id" : "lib/network/base/clientnetworksession",
+            "script_path" : "lua/networkhandler.lua"
+        },
+		{
+            "hook_id": "lib/managers/menumanager",
+            "script_path": "lua/configuration_menu.lua"
+        },
+        {
+            "hook_id" : "lib/managers/playermanager",
+            "script_path" : "lua/playermanager.lua"
+        },
+        {
+            "hook_id" : "lib/units/beings/player/states/playerstandard",
+            "script_path" : "lua/playerstandard.lua"
+        },
+        {
+            "hook_id" : "lib/units/beings/player/states/playercarry",
+            "script_path" : "lua/playercarry.lua"
+        },
+        {
+            "hook_id" : "lib/managers/playermanager",
+            "script_path" : "lua/antianticheat.lua"
+        },
+        {
+            "hook_id" : "lib/units/interactions/interactionext",
+            "script_path" : "lua/interactionext.lua"
+        },
+        {
+            "hook_id" : "lib/managers/group_ai_states/groupaistatebase",
+            "script_path" : "lua/groupaistatebase.lua"
+        }
+	]
+}
