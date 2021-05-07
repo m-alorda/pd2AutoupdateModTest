@@ -42,7 +42,7 @@
     {
       "identifier": "autoupdate_mod_test",
       "host": {
-        "meta": "https://github.com/HugoZink/PD2AutoUpdateExample/releases/download/refs%2Fheads%2Fmaster/meta.json"
+        "meta": "https://github.com/m-alorda/pd2AutoupdateModTest/releases/latest/download/meta.json"
       }
     }
   ]
