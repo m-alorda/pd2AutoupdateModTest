@@ -2,7 +2,7 @@
     {
         "ident" : "autoupdate_mod_test",
         "hash" : "%HASH%",
-        "patchnotes_url" : "https://example.com/other-patchnotes.html",
+        "patchnotes_url" : "https://github.com/m-alorda/pd2AutoupdateModTest/blob/autoupdate/changelog.html",
         "download_url" : "https://github.com/m-alorda/pd2AutoupdateModTest/releases/latest/download/autoupdateModeTest.zip"
     }
 ]

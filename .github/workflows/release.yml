@@ -1,9 +1,7 @@
 name: Create PAYDAY mod release
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ autoupdate ]
 jobs:
   build:
     runs-on: windows-latest
@@ -27,8 +25,6 @@ jobs:
         release_name: Latest release
         draft: false
         prerelease: false
-        body: |
-          This release zip is automatically updated on every push. You can ignore the "x commits behind" message.
     - name: Upload Mod Zip to Release
       id: upload-release-asset 
       uses: actions/upload-release-asset@v1
