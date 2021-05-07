@@ -15,7 +15,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Archive Mod
       run: |
-         .\.github\7za.exe -tzip a ".\pd2autoupdatexample.zip" ".\SampleMod"
+         .\.github\7za.exe -tzip a ".\autoupdateModeTest.zip" ".\AutoupdateModTest"
       shell: powershell
     - name: Create New Release
       id: create_release
