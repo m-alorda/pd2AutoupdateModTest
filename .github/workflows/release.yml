@@ -1,16 +1,16 @@
 name: Create PAYDAY mod release
 on:
-  push:
-    branches: [ autoupdate ]
+   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: 'v.X.X'
 jobs:
   build:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
-    - name: Delete Existing Release
-      uses: ame-yu/action-delete-latest-release@v2
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Archive Mod
       run: |
          .\.github\7za.exe -tzip a ".\autoupdateModeTest.zip" ".\AutoupdateModTest"
@@ -21,8 +21,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: latest-release
-        release_name: Latest release
+        tag_name: ${{ github.event.inputs.version }}
+        release_name: Version ${{ github.event.inputs.version }}
         draft: false
         prerelease: false
     - name: Upload Mod Zip to Release
@@ -38,7 +38,7 @@ jobs:
     - name: Hash mod and create mod meta file
       id: create_meta_file
       run: |
-         $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./AutoupdateModTest").Substring(17)) > ./meta.json
+         $(cat .\.github\metaTemplate.json).Replace("%HASH%", $(./.github/hash.exe "./AutoupdateModTest").Substring(17)) > ./meta.json
     - name: Upload meta file to Release
       id: upload-meta-asset 
       uses: actions/upload-release-asset@v1
